@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>snake</groupId>
+  <artifactId>snake-game-structured</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  <name>Snake Game Structured</name>
+  <description>Customizable Java Snake simulation: discrete-time engine with JavaFX adapter and data-driven .rule / .scenario files.</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Records (RuleManagerDialog.Entry) and pattern-matching instanceof need 16+; 17 is the LTS floor. -->
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <javafx.version>21.0.4</javafx.version>
+    <javafx-maven-plugin.version>0.0.8</javafx-maven-plugin.version>
+  </properties>
+
+  <dependencies>
+    <!-- Platform-specific jars resolve via the artifacts' own OS profiles; no classifier needed. -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-graphics</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <!-- Existing layout keeps packages directly under src/ (src/app, src/game, ...). -->
+    <sourceDirectory>src</sourceDirectory>
+    <testSourceDirectory>test-src</testSourceDirectory>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>${javafx-maven-plugin.version}</version>
+        <configuration>
+          <mainClass>app.Main</mainClass>
+          <!-- rules/ and scenarios/ live in the parent folder; run from there so both
+               `mvn javafx:run` and NetBeans F6 resolve them. -->
+          <workingDirectory>${project.basedir}/..</workingDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
