@@ -82,7 +82,7 @@ public final class Scenario {
     }
 
     public static Scenario standard() {
-        return new Scenario("Standard", 20260831L, 1, 0, 0, 0, Objective.SCORE, 100, 3, 3,
+        return new Scenario("Standard", 20260831L, 1, 2, 0, 2, Objective.SCORE, 100, 3, 3,
                 List.of(), List.of(), DEFAULT_ENEMIES, Tuning.DEFAULT);
     }
 

@@ -52,14 +52,15 @@ public class Bonus extends GameObject implements Collidable, Collectible, Effect
     public void render(GraphicsContext gc) {
         if (collected) return;
         Color color = switch (type) {
-            case SHIELD -> Color.CYAN;
+            case SHIELD -> Color.DODGERBLUE;
             case POISON -> Color.DARKMAGENTA;
             case SPEED -> Color.YELLOW;
         };
         gc.setFill(color);
         gc.fillOval(getX() + 5, getY() + 5, CELL - 10, CELL - 10);
-        gc.setFill(Color.BLACK);
+        gc.setFill(type == Type.POISON ? Color.WHITE : Color.BLACK);
         gc.fillText(type.name().substring(0, 1), getX() + 16, getY() + 25);
+        drawLabel(gc, type.name());
     }
 
     @Override

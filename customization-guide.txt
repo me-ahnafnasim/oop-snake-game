@@ -1,0 +1,8 @@
+RULE save_me PRIORITY 1 WHEN event == ENEMY_COLLISION AND health == 1 DO spawn(BONUS, SHIELD)
+- When an enemy hit leaves you at 1 health, a Shield appears on the board.
+
+RULE weapon_heal PRIORITY 5 WHEN event == WEAPON_COLLECTED DO change_health(1)
+- Picking up a Blaster or Bomb gives +1 health.
+
+RULE shield_heal PRIORITY 5 WHEN event == BONUS_COLLECTED AND event.detail == SHIELD DO change_health(1)
+- Picking up a Shield gives +1 health. Currently OFF; enable it in F2.

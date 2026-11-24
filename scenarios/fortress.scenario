@@ -1,0 +1,17 @@
+# Player-authored scenario: hard score run inside a walled fortress.
+# Loaded at runtime with F3 - no Java change required.
+name=Fortress
+seed=1337
+food=1
+enemies=4
+obstacles=3
+weapons=2
+health=3
+objective=SCORE
+targetScore=200
+levels=4
+walls=4:3,5:3,6:3,13:3,14:3,15:3,4:11,5:11,6:11,13:11,14:11,15:11,4:4,4:10,15:4,15:10
+enemyTypes=CHASER,PATROLLER,WANDERER
+foodPoints=10
+bonusTicks=15
+bombRadius=2

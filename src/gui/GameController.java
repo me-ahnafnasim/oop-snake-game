@@ -113,15 +113,12 @@ public class GameController {
     private void openScenarioManager() {
         boolean wasPaused = paused;
         paused = true;
-        List<Scenario> scenarios = new ArrayList<>();
+        // Built-in scenarios are always offered; player-authored files are listed after them.
+        List<Scenario> scenarios = new ArrayList<>(List.of(Scenario.standard(), Scenario.challenge()));
         try {
             scenarios.addAll(ScenarioManager.loadDirectory(SCENARIO_DIRECTORY));
         } catch (Exception e) {
             showMessage(Alert.AlertType.ERROR, "Scenario error", e.getMessage());
-        }
-        if (scenarios.isEmpty()) {
-            scenarios.add(Scenario.standard());
-            scenarios.add(Scenario.challenge());
         }
         ChoiceDialog<Scenario> dialog = new ChoiceDialog<>(scenarios.get(0), scenarios);
         dialog.setTitle("Scenario Manager");

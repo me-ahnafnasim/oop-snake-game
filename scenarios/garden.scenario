@@ -1,0 +1,16 @@
+# Player-authored scenario: relaxed score run with plenty of food and weapons.
+# Loaded at runtime with F3 - no Java change required.
+name=Garden
+seed=7
+food=3
+enemies=2
+obstacles=2
+weapons=2
+health=5
+objective=SCORE
+targetScore=120
+levels=3
+enemyTypes=WANDERER,PATROLLER
+foodPoints=10
+bonusTicks=25
+bombRadius=2

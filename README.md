@@ -47,7 +47,7 @@ rm -rf /tmp/snake-game-classes
 mkdir -p /tmp/snake-game-classes
 javac --module-path "$JAVAFX_LIB" --add-modules javafx.controls,javafx.graphics \
   -d /tmp/snake-game-classes \
-  $(find snake-game-structured/src -name '*.java' | sort)
+  $(find src -name '*.java' | sort)
 java --module-path "$JAVAFX_LIB" --add-modules javafx.controls,javafx.graphics \
   -cp /tmp/snake-game-classes app.Main
 ```

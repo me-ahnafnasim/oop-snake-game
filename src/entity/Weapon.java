@@ -14,7 +14,7 @@ public final class Weapon extends GameObject implements Collidable, Collectible 
 
     public enum Type {
         /** Removes the single enemy closest to the snake's head. */
-        BLASTER(Color.CYAN, "W") {
+        BLASTER(Color.DODGERBLUE, "W") {
             @Override
             public int fire(SimulationState state) {
                 Snake snake = state.getSnake();
@@ -84,8 +84,7 @@ public final class Weapon extends GameObject implements Collidable, Collectible 
         gc.fillRect(getX() + 8, getY() + 14, CELL - 16, 12);
         gc.setFill(type.color);
         gc.fillOval(getX() + 15, getY() + 10, 10, 20);
-        gc.setFill(Color.WHITE);
-        gc.fillText(type.symbol, getX() + 15, getY() + 37);
+        drawLabel(gc, type.symbol + " " + type.name());
     }
 
     @Override

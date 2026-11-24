@@ -1,0 +1,1 @@
+RULE save_me PRIORITY 1 WHEN event == ENEMY_COLLISION AND health == 1 DO spawn(BONUS, SHIELD)

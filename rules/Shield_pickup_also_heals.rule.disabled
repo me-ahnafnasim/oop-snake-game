@@ -1,0 +1,1 @@
+RULE shield_heal PRIORITY 5 WHEN event == BONUS_COLLECTED AND event.detail == SHIELD DO change_health(1)

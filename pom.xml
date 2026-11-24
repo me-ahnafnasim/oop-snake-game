@@ -51,9 +51,9 @@
         <version>${javafx-maven-plugin.version}</version>
         <configuration>
           <mainClass>app.Main</mainClass>
-          <!-- rules/ and scenarios/ live in the parent folder; run from there so both
+          <!-- rules/ and scenarios/ live in the project folder; run from there so both
                `mvn javafx:run` and NetBeans F6 resolve them. -->
-          <workingDirectory>${project.basedir}/..</workingDirectory>
+          <workingDirectory>${project.basedir}</workingDirectory>
         </configuration>
       </plugin>
     </plugins>

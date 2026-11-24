@@ -2,7 +2,7 @@
 <actions>
   <!-- One-click Run in NetBeans uses the JavaFX plugin (correct module path)
        instead of the default exec plugin. Working directory comes from the
-       pom's javafx-maven-plugin configuration (parent folder with rules/). -->
+       pom's javafx-maven-plugin configuration (project folder with rules/ and scenarios/). -->
   <action>
     <actionName>run</actionName>
     <goals>

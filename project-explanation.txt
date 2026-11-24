@@ -1,0 +1,45 @@
+This is a customizable and extensible Snake game simulation developed in Java, with a JavaFX graphical interface.
+
+Simulation Type: It is a discrete-time simulation engine. Time progresses through equal ticks, and each call to SimulationEngine.advance(),(game->simulationEngine(class)->advance(method)) updates the world in a predefined order: updating effects, moving the snake and enemies, handling weapons, detecting collisions, checking objectives, and evaluating player-defined rules.
+
+It is not a discrete-event simulation because time does not jump between scheduled events. Events simply record what happens during each tick.
+
+Architecture: The project separates the simulation engine from the JavaFX interface. The engine manages game logic and state, while JavaFX handles user interaction and visualization.
+
+Main Feature -  Players can create their own rules using plain-text .rule files and configure scenarios using .scenario files without modifying Java code.
+
+For example, a player can write a rule that automatically restores health when the snake's health reaches 1.
+
+Extensibility: The architecture follows the Open-Closed Principle. Developers can introduce new movement strategies by implementing the MovementStrategy interface and registering them without modifying the existing engine classes.
+
+Object-Oriented Design: The project demonstrates several OOP principles:
+
+- Encapsulation: The Snake maintains private state and exposes controlled methods.
+- Abstraction: GameObject defines shared characteristics of game entities.
+- Inheritance: Snake, Enemy, Food, and other entities extend GameObject.
+- Polymorphism: Different objects respond differently to the same method calls.
+- Interfaces and Subtyping: Interfaces such as Movable, Collidable, and Updatable define independent capabilities.
+- Composition: The Snake contains Segment objects to represent its body.
+-subtyping: The relationship between two types, B <: A, and the rule it gives you: a B object can be used wherever an A is expected. 
+
+ Class inheritance, from GameObject
+Snake, Enemy, Food, Bonus, Obstacle and Weapon all extends GameObject.
+
+Interface subtyping (one object, several types)
+- Enemy implements Collidable, Movable, Updatable, EnemyContact
+- Food implements Collidable, Collectible, EnemyContact
+
+3. Strategy subtypes
+ChaseStrategy, PatrolStrategy, WanderStrategy and FleeStrategy implement MovementStrategy.
+
+
+Gameplay: The simulation includes three enemy kinds (Chaser, Patroller, and Wanderer), interchangeable movement strategies, two weapons (Blaster and Bomb), three bonuses (Shield, Poison, and Speed), multiple levels, and two victory objectives: reaching a target score or surviving a specified number of ticks.
+
+
+
+
+
+"Discrete time means the simulation advances in fixed steps called ticks. The game world only changes when a tick occurs — nothing changes in between — which makes runs repeatable and rules deterministic."
+
+
+ move the snake, move enemies, fire weapons, resolve collisions, update effects, check objectives, then run player-defined rules.

@@ -38,6 +38,7 @@ public class Food extends GameObject implements Collidable, Collectible, EnemyCo
         gc.fillOval(cx - radius, cy - radius, radius * 2, radius * 2);
         gc.setFill(Color.GREEN);
         gc.fillRoundRect(cx - 3, cy - radius - 6, 6, 8, 4, 4);
+        drawLabel(gc, "FOOD");
     }
 
     @Override

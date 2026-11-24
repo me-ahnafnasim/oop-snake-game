@@ -31,6 +31,7 @@ public final class Obstacle extends GameObject implements Collidable, EnemyConta
             gc.setFill(Color.ORANGE);
             gc.fillText("!", getX() + 15, getY() + 25);
         }
+        drawLabel(gc, hazardous ? "HAZARD" : "WALL");
     }
 
     @Override

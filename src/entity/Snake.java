@@ -22,7 +22,12 @@ public class Snake extends GameObject implements Movable {
     private int speedBoostTicks;
 
     public Snake(double x, double y) {
+        this(x, y, 3);
+    }
+
+    public Snake(double x, double y, int initialHealth) {
         super(x, y);
+        health = Math.max(0, initialHealth);
         for (int i = 0; i < INITIAL_LENGTH; i++) {
             Color c = (i == 0) ? Color.DARKGREEN : Color.LIMEGREEN;
             body.add(new Segment(x - i * CELL, y, c));
@@ -103,10 +108,6 @@ public class Snake extends GameObject implements Movable {
     }
 
     public int getHealth() { return health; }
-
-    public void setHealth(int health) {
-        this.health = Math.max(0, health);
-    }
 
     public void changeHealth(int amount) {
         health = Math.max(0, health + amount);

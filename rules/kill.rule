@@ -1,0 +1,1 @@
+RULE weapon_heal PRIORITY 5 WHEN event == WEAPON_COLLECTED DO change_health(1)

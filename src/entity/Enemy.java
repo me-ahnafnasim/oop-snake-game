@@ -21,7 +21,7 @@ public final class Enemy extends GameObject implements Collidable, Movable, Upda
         /** Hunts the snake at half speed, so the player can escape, and eats food on its way. */
         CHASER(Color.PURPLE, "CHASE", true, 2),
         PATROLLER(Color.ORANGE, "PATROL", false, 1),
-        WANDERER(Color.TEAL, "WANDER", false, 1);
+        WANDERER(Color.GREEN, "WANDER", false, 1);
 
         private final Color color;
         private final String defaultStrategy;
@@ -118,6 +118,7 @@ public final class Enemy extends GameObject implements Collidable, Movable, Upda
         gc.setFill(Color.WHITE);
         gc.fillOval(getX() + 12, getY() + 12, 6, 6);
         gc.fillOval(getX() + 24, getY() + 12, 6, 6);
+        drawLabel(gc, kind.name());
     }
 
     @Override

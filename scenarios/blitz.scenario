@@ -1,0 +1,16 @@
+# Player-authored scenario: survive-focused, faster food, mixed enemies.
+# Loaded at runtime with F3 - no Java change required.
+name=Blitz
+seed=42
+food=2
+enemies=3
+obstacles=4
+weapons=1
+health=5
+objective=SURVIVE
+surviveTicks=150
+levels=2
+enemyTypes=CHASER,WANDERER
+foodPoints=15
+bonusTicks=10
+bombRadius=3
